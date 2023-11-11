@@ -41,6 +41,8 @@ public class JT {
 
     public static void printPermutation(int[] A, boolean[] B, int n) {
         int mobile = findMobile(A, B, n);
+
+        //original that caused index out of bounds
 //        int position = search(A, n, mobile);
 //        if (!B[A[position - 1] - 1]) {
 //            int temp = A[position - 1];
@@ -100,7 +102,7 @@ public class JT {
 
     }
 
-
+    //factorial method
     public static int factorial(int n) {
         return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
     }
