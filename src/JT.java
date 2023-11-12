@@ -1,8 +1,22 @@
 public class JT {
 
     public static void main(String[] args) {
-        int n = 4;
+        int n =2;
+//        int n = 3;
+//        int n = 4;
+//        int n = 5;
+//        int n = 6;
+//        int n = 7;
+//        int n = 8;
+//        int n = 9;
+//        int n = 10;
+//        int n = 11;
+//        int n = 12;
+        long start = System.currentTimeMillis();
         SJT(n);
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        System.out.println(timeElapsed);
     }
 
     public static int search(int[] A, int n, int k) {
