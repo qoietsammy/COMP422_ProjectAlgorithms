@@ -1,22 +1,24 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class JT {
 
     public static void main(String[] args) {
-        int n =2;
-//        int n = 3;
-//        int n = 4;
-//        int n = 5;
-//        int n = 6;
-//        int n = 7;
-//        int n = 8;
-//        int n = 9;
-//        int n = 10;
-//        int n = 11;
-//        int n = 12;
+        // Prompting for array size
+        System.out.println("Enter n (size of the array)");
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        // Timing the algorithm
         long start = System.currentTimeMillis();
         SJT(n);
         long finish = System.currentTimeMillis();
         long timeElapsed = finish - start;
         System.out.println(timeElapsed);
+
+        // Exiting
+        System.out.println("type a key to exit");
+        scn.next();
     }
 
     public static int search(int[] A, int n, int k) {
@@ -55,19 +57,6 @@ public class JT {
 
     public static void printPermutation(int[] A, boolean[] B, int n) {
         int mobile = findMobile(A, B, n);
-
-        //original that caused index out of bounds
-//        int position = search(A, n, mobile);
-//        if (!B[A[position - 1] - 1]) {
-//            int temp = A[position - 1];
-//            A[position - 1] = A[position - 2];
-//            A[position - 2] = temp;
-//
-//        } else {
-//            int temp = A[position];
-//            A[position] = A[position - 1];
-//            A[position - 1] = temp;
-//        }
         int position = search(A, n, mobile) - 1;
 
         if (position != -1) {
@@ -91,27 +80,23 @@ public class JT {
                 }
             }
         }
-//        for (int i = 0; i < n ; i++) {
-//            System.out.print(" "+ A[i] + " ");
-//        }
-//        System.out.println();
         System.out.println(Arrays.toString(A));
+
     }
 
     public static void SJT(int n) {
         int[] A = new int[n];
         boolean[] B = new boolean[n];
-//        for (int i = 0; i < n ; i++) {
-//            A[i] = i + 1;
-//            System.out.print(" "+ A[i] + " ");
-//        }
-//        System.out.println();
+        for (int i = 0; i < n ; i++) {
+            A[i] = i + 1;
+        }
         System.out.println(Arrays.toString(A));
         for (int i = 0; i < n ; i++) {
             B[i] = false;
         }
 
         int temp = factorial(n);
+
         for (int i = 0; i < temp ; i++) {
             printPermutation(A, B, n);
         }
